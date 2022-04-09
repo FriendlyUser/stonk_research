@@ -14,9 +14,11 @@ jobs:
           ./latexdockercmd.sh /bin/sh -c "lwarpmk print"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk html1" 
+          ./latexdockercmd.sh /bin/sh -c "bibtex lwarp_template_html"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk html1" 
           ./latexdockercmd.sh /bin/sh -c "lwarpmk limages"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex" 
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk html1" 
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
           cp -R src/media output/src || true
