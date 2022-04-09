@@ -18,6 +18,7 @@ jobs:
           ./latexdockercmd.sh /bin/sh -c "lwarpmk html1 || true" 
           ./latexdockercmd.sh /bin/sh -c "lwarpmk limages || true"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex || true" 
+          ./latexdockercmd.sh /bin/sh -c "bibtex lwarp_template_html"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk html1 || true" 
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
