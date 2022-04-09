@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Pdf
         run: |
-          apt-get update && apt-get install poppler-utils -y && apt-get install git
+          apt-get update && apt-get install poppler-utils git -y 
           pdflatex lwarp_template.tex
           pdflatex lwarp_template.tex
           lwarpmk printindex
