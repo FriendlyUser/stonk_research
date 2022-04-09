@@ -18,7 +18,8 @@ jobs:
           ./latexdockercmd.sh /bin/sh -c "lwarpmk limages"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex" 
           mv *.html output/ && mv *.css output/
-          cp -R src/media output || true
+          mkdir -p output/src
+          cp -R src/media output/src || true
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
