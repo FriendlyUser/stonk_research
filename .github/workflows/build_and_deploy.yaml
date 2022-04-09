@@ -8,9 +8,8 @@ jobs:
       - name: Build Pdf
         run: |
           chmod +x ./latexdockercmd.sh
-          ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
-          /latexdockercmd.sh /bin/sh -c "bibtex lwarp_template"
-          ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
+          ./latexdockercmd.sh /bin/sh -c "lualatex lwarp_template.tex"
+          ./latexdockercmd.sh /bin/sh -c "lualatex lwarp_template.tex"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk printindex"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk print"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex || true"
@@ -20,7 +19,7 @@ jobs:
           ./latexdockercmd.sh /bin/sh -c "lwarpmk limages || true"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex || true" 
           ./latexdockercmd.sh /bin/sh -c "bibtex lwarp_template_html"
-          ./latexdockercmd.sh /bin/sh -c "lwarpmk html || true" 
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk html1 || true" 
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
           cp -R src/media output/src || true
