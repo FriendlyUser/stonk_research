@@ -1,0 +1,28 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    container:
+      image:  ghcr.io/friendlyuser/dimages/lwarp_docker:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Pdf
+        run: |
+          apt-get update && apt-get install poppler-utils -y
+          pdflatex lwarp_template.tex
+          pdflatex lwarp_template.tex
+          lwarpmk printindex
+          lwarpmk print
+          lwarpmk htmlindex
+          lwarpmk html1 && lwarpmk html1 && lwarpmk limages || true
+          lwarpmk htmlindex 
+          mv *.html output/ && mv *.css output/
+          cp -R src/media output || true
+
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: output # The folder the action should deploy.
