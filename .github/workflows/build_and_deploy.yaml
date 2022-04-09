@@ -7,7 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Pdf
         run: |
-          apt-get update && apt-get install poppler-utils
           chmod +x ./latexdockercmd.sh
           ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
           ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
