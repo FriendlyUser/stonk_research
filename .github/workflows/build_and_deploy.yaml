@@ -3,24 +3,25 @@ on: [push]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    container:
-      image:  ghcr.io/friendlyuser/dimages/lwarp_docker:latest
     steps:
       - uses: actions/checkout@v2
       - name: Build Pdf
         run: |
-          apt-get update && apt-get install poppler-utils git -y 
-          pdflatex lwarp_template.tex
-          pdflatex lwarp_template.tex
-          lwarpmk printindex
-          lwarpmk print
-          lwarpmk htmlindex
-          lwarpmk html1 && lwarpmk html1 && lwarpmk limages || true
-          lwarpmk htmlindex 
+          apt-get update && apt-get install poppler-utils
+          chmod +x ./latexdockercmd.sh
+          ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
+          ./latexdockercmd.sh /bin/sh -c "pdflatex lwarp_template.tex"
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk printindex"
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk print"
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex"
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk html1" 
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk html1" 
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk limages"
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex" 
           mv *.html output/ && mv *.css output/
           cp -R src/media output || true
 
-
+      container:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
