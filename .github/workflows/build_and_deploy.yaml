@@ -20,12 +20,11 @@ jobs:
           ./latexdockercmd.sh /bin/sh -c "lwarpmk htmlindex || true" 
           ./latexdockercmd.sh /bin/sh -c "bibtex lwarp_template_html"
           ./latexdockercmd.sh /bin/sh -c "lwarpmk html1 || true"
-          ./latexdockercmd.sh /bin/sh -c "lwarpmk html || true" 
+          ./latexdockercmd.sh /bin/sh -c "lwarpmk html" 
           mv lwarp_template.html index.html || true
           ls
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
-          ls *html
           mv *.html output/
           cp -R src/media output/src || true
       - name: Deploy 🚀
