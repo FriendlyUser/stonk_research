@@ -33,6 +33,7 @@
 \usepackage{xcolor}             % (Demonstration purposes only.)
 \usepackage{hyperref,cleveref}  % LOAD THESE LAST!
 \usepackage[autostyle]{csquotes}
+\usepackage[final]{pdfpages}
 \newcommand{\onlineCite}{[Online] Available: }	% Used in BIBLIOGRAPHY 
 \usepackage[backend=bibtex,sorting=none]{biblatex}	% Sort by citation order, IEEE
 \addbibresource{src/preamble/references.bib}
@@ -55,6 +56,12 @@
 \CSSFilename{lwarp_sagebrush.css}
 
 \usepackage{graphicx}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.7}
+\usepackage{tikz}
+
 \begin{document}
 
 \maketitle                      % Or titlepage/titlingpage environment.
