@@ -25,7 +25,7 @@ jobs:
           ls
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
-          mv *.html output/
+          mv *.html output/ || true
           cp -R src/media output/src || true
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
