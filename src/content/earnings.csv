@@ -1,2 +1,2 @@
-Company,Date, Quarter, Lower Estimate, Higher Estimate, Actual, description
-ZIM,08-16-22,Q2, 14, 17, , Look at competitors earnings
+Company,Date, Quarter, Lower Estimate, Higher Estimate, Est Revenue, Actual Revenue, Actual Earnings, description
+ZIM,08-16-22,Q2, 14, 17, 11.2, 3.7B, Look at competitors earnings
