@@ -24,7 +24,7 @@ jobs:
           mv lwarp_template.html index.html || true
           ls
           sed -i '6i <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>' *.html
-          sed -i '7i         <script>\n(adsbygoogle = window?.adsbygoogle || []).push({google_ad_client: "ca-pub-2479144310234386", enable_page_level_ads: true, });\n </script>' *.html
+          sed -i '7i         <script>(adsbygoogle = window?.adsbygoogle || []).push({google_ad_client: "ca-pub-2479144310234386", enable_page_level_ads: true, });</script>' *.html
           mv *.html output/ && mv *.css output/
           mkdir -p output/src
           mv *.html output/ || true
